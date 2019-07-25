@@ -1,0 +1,14 @@
+# IDE
+.idea
+
+# Environments
+.venv
+.env
+venv/
+env/
+
+# Data
+data/
+*.zip
+
+
