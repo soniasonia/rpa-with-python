@@ -1,5 +1,6 @@
 # IDE
 .idea
+__pycache__/
 
 # Environments
 .venv
@@ -10,5 +11,8 @@ env/
 # Data
 data/
 *.zip
+*txt
+
+
 
 
