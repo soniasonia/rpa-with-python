@@ -12,6 +12,8 @@ env/
 data/
 *.zip
 *txt
+*.xlsx
+*.log
 
 
 
