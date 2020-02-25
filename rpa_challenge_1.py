@@ -21,28 +21,20 @@ def get_data():
 def set_data(data):
     driver = webdriver.Firefox()
     driver.get(URL)
-    javascript = 'var start = $("button.uiColorButton")[0]; start.click();'
-    driver.execute_script(javascript)
-    for case in data:
-        fill_form(driver, case)
 
-
-def fill_form(driver, case):
-    javascript = '''const x = document.getElementsByTagName("rpa1-field");
-                    var dict = {};
-                    for (e of x) {
-                      label = e.getAttribute("ng-reflect-dictionary-value");
-                      id = e.getElementsByTagName("input")[0].id;
-                      dict[label] = id;
+    javascript = '''var start = $("button.uiColorButton")[0]; 
+                    var submit = $("input.uiColorButton")[0];
+                    var data = ALL_MY_DATA;
+                    start.click();    
+                    for (case_ of data) {              
+                        var fields = document.getElementsByTagName("rpa1-field");
+                        for (field of fields) {
+                          label_ = field.getAttribute("ng-reflect-dictionary-value");
+                          field.getElementsByTagName("input")[0].value = case_[label_];                  
+                        }
+                        submit.click();
                     }
-                    return dict'''
-    web = driver.execute_script(javascript)
-    for label in web.keys():
-        id_ = web[label]
-        value_ = case[label]
-        javascript = f'document.getElementById("{id_}").value="{value_}"'
-        driver.execute_script(javascript)
-    javascript = 'submit = $("input.uiColorButton")[0]; submit.click();'
+                    return dict'''.replace("ALL_MY_DATA", str(data))
     driver.execute_script(javascript)
 
 
