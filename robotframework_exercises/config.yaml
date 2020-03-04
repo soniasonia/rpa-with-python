@@ -1,0 +1,11 @@
+URL: http://www.rpachallenge.com/
+BROWSER: Firefox
+INPUT: ../challenge.xlsx
+LABELS:
+  - First Name
+  - Last Name
+  - Company Name
+  - Role in Company
+  - Address
+  - Email
+  - Phone Number
