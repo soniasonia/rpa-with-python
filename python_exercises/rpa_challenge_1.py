@@ -1,7 +1,7 @@
 import openpyxl
 from selenium import webdriver
 
-INPUT = "challenge.xlsx"
+INPUT = r"challenge.xlsx"
 URL = "http://www.rpachallenge.com/"
 
 
